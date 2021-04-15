@@ -16,15 +16,7 @@ group :development, :test do
   end
 
   platforms :ruby do
-    gem 'mysql2', ">= 0.3.11", "< 0.4.0" # mysql2 0.4.0 does not work with rails 4.2.4. Later Rails it should. 
-    # the ruby racer needed for running app tests on platforms
-    # without javascript runtime found. 0.12 is having a hard
-    # time installing on my OSX, 0.11.x is good enough for these purposes. 
-    gem 'therubyracer', "~> 0.11.0"
-  end
-
-  platforms :mri do
-    gem 'ruby-prof', "~> 0.13.0"
+    gem 'mysql2', ">= 0.3.11", "< 0.4.0" # mysql2 0.4.0 does not work with rails 4.2.4. Later Rails it should.
   end
 
   gem 'jquery-rails'
@@ -47,7 +39,7 @@ gem "coveralls", "~> 0.6.0", :require => false, :group => :test
 if ENV["RAILS_GEM_SPEC"]
   gem "rails", ENV["RAILS_GEM_SPEC"]
   # Our tests assume minitest, but Rails 3 is only compatible with
-  # older versions of minitest. This works for now. 
+  # older versions of minitest. This works for now.
   if ENV["RAILS_GEM_SPEC"] =~ /([\d.]+)/ && $1.split(".")[0].to_i < 4
     gem "minitest", "~> 4.0"
   end
@@ -57,4 +49,3 @@ end
 # your gemspec. These might include edge Rails or gems from your path or
 # Git. Remember to move these dependencies to your gemspec before releasing
 # your gem to rubygems.org.
-
